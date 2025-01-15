@@ -9,13 +9,18 @@ class Task{
 }
 class TaskManager{
   List<Task> taskList=[];
-  addNewTask(int id,String title,String description,String status,DateTime dueDate){
+  addNewTask(String title,String description,String status,DateTime dueDate){
     int id= taskList.length+1;
     taskList.add(Task(id: id, title: title, description: description, status: status, dueDate: dueDate));
 print('Title added: $title');
+updateTask(int id,String title,String status){
+if(taskList[id]==id){
+  status='done';
+}
+}
   }
 }
 void main(){
   TaskManager taskManager=TaskManager();
-  taskManager.addNewTask(101, 'Farhan', "Farhan", 'Pending', DateTime.now());
+  taskManager.addNewTask( 'Farhan', "Farhan", 'Pending', DateTime.now());
 }
